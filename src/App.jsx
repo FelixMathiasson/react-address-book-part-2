@@ -4,6 +4,7 @@ import Menu from './components/menu'
 import ContactsList from './components/ContactsList'
 import ContactOutput from './components/ContactOutput'
 import ContactAdder from './components/ContactAdder'
+import ContactEditor from './components/ContactEditor'
 
 function App() {
     return (
@@ -17,6 +18,8 @@ function App() {
                     <Route path= '/add-new-contact' element={<ContactAdder/>} />
                     <Route path = '/contacts' element = {<ContactsList/>} />
                     <Route path='/contacts/:id' element={<ContactOutput />} />
+                    <Route path="/edit-contact/:id" element={<ContactEditor />} />
+
                 </Routes>
             </div>
         </>

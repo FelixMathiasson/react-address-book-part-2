@@ -19,8 +19,7 @@ export default function ContactsItem({contact, setContact}) {
         }
     }
 
-   
-
+    
 
 
     return (
@@ -31,6 +30,9 @@ export default function ContactsItem({contact, setContact}) {
             <Link to='/'>
 				<button onClick={ManageDelete}>Delete Contact</button>
 			</Link>
+            <Link to={`/edit-contact/${contact.id}`}>
+                <button>Edit Contact</button>
+            </Link>
         </li>
     )
-}
+} 
