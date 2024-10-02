@@ -32,7 +32,7 @@ export default function ContactEditor() {
         })
             .then((response) => response.json())
             .then(() => {
-                nav('/contacts'); 
+                nav(`/contacts/${params.id}`); 
             })
     }
 
