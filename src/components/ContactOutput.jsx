@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ContactMap from './ContactMap';
+
 
 export default function ContactOutput() {
     const [contactOutput, setContactOutput] = useState({})
@@ -18,6 +20,13 @@ export default function ContactOutput() {
             <h4>City: {contactOutput.city}</h4>
             <h4>Street: {contactOutput.street}</h4>
             <p>Email: {contactOutput.email}</p>
+            {contactOutput.latitude && contactOutput.longitude && (
+                <ContactMap
+                    latitude={parseFloat(contactOutput.latitude)}
+                    longitude={parseFloat(contactOutput.longitude)}
+                    contact={contactOutput}
+                />
+            )}
         </div>
     )
 }

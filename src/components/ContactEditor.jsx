@@ -8,6 +8,8 @@ export default function ContactEditor() {
         city: '',
         street: '',
         email: '',
+        latitude: 0, 
+        longitude: 0,
         profileImage: 'https://www.gravatar.com/avatar'
     })
 
@@ -37,7 +39,11 @@ export default function ContactEditor() {
     }
 
     function ManageChange(e) {
-        setContact({ ...contact, [e.target.name]: e.target.value })
+        if(e.target.name === 'longitude' || e.target.name === 'latitude') {
+            setContact({ ...contact, [e.target.name]: parseFloat(e.target.value) })
+        } else {
+            setContact({ ...contact, [e.target.name]: e.target.value })
+        }
     }
 
     return(
@@ -78,6 +84,20 @@ export default function ContactEditor() {
                     type='email'
                     name='email'
                     value={contact.email}
+                    onChange={ManageChange}
+                />
+                <label htmlFor='latitude'>Latitude</label>
+                <input
+                    type='number'
+                    name='latitude'
+                    value={contact.latitude}
+                    onChange={ManageChange}
+                />
+                <label htmlFor='longitude'>Longitude</label>
+                <input
+                    type='number'
+                    name='longitude'
+                    value={contact.longitude}
                     onChange={ManageChange}
                 />
                 <button type='submit'>Save Changes</button>

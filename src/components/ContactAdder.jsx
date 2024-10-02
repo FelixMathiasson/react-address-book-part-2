@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
+
+
 export default function ContactAdder() {
     const [newContact, setNewContact] = useState({
         firstName: '',
@@ -8,7 +10,9 @@ export default function ContactAdder() {
         city: '',
         street: '',
         email: '',
-        profileImage: 'https://www.gravatar.com/avatar'
+        latitude: 0, 
+        longitude: 0,
+        profileImage: 'https://i.pinimg.com/originals/d6/3c/1e/d63c1ef766f4d12f14127148d3c0e45a.gif'
     })
 
     const nav = useNavigate();
@@ -66,6 +70,20 @@ export default function ContactAdder() {
                     type='textbox'
                     name='email'
                     value={newContact.email}
+                    onChange={ManageChange}
+                />
+                 <label htmlFor="latitude">Latitude</label>
+                <input
+                    type="text"
+                    name="latitude"
+                    value={newContact.latitude}
+                    onChange={ManageChange}
+                />
+                <label htmlFor="longitude">Longitude</label>
+                <input
+                    type="text"
+                    name="longitude"
+                    value={newContact.longitude}
                     onChange={ManageChange}
                 />
                 <button type='submit'>Add Contact</button>
